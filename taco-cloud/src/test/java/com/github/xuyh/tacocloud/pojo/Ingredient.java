@@ -6,9 +6,9 @@ import lombok.RequiredArgsConstructor;
 @Data
 @RequiredArgsConstructor
 public class Ingredient {
-  private String id;
-  private String name;
-  private Type type;
+  private final String id;
+  private final String name;
+  private final Type type;
 
   public enum Type {
     WRAP,
