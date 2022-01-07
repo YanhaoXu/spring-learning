@@ -2,6 +2,7 @@ package com.github.xuyh.tacocloud.controller;
 
 import com.github.xuyh.tacocloud.pojo.Ingredient;
 import com.github.xuyh.tacocloud.pojo.Ingredient.Type;
+import com.github.xuyh.tacocloud.pojo.Taco;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,7 +36,7 @@ public class DesignTacoController {
     for (Type type : Type.values()) {
       model.addAttribute(type.toString().toLowerCase(), filterByType(ingredients, type));
     }
-    // model.addAttribute("design",new Taco)
+    model.addAttribute("design", new Taco());
 
     return "design";
   }
