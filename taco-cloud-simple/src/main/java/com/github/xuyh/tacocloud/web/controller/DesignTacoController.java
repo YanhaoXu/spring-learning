@@ -1,8 +1,8 @@
-package com.github.xuyh.tacocloud.controller;
+package com.github.xuyh.tacocloud.web.controller;
 
-import com.github.xuyh.tacocloud.pojo.Ingredient;
-import com.github.xuyh.tacocloud.pojo.Ingredient.Type;
-import com.github.xuyh.tacocloud.pojo.Taco;
+import com.github.xuyh.tacocloud.web.model.Ingredient;
+import com.github.xuyh.tacocloud.web.model.Ingredient.Type;
+import com.github.xuyh.tacocloud.web.model.Taco;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

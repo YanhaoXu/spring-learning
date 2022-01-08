@@ -1,4 +1,4 @@
-package com.github.xuyh.tacocloud.pojo;
+package com.github.xuyh.tacocloud.web.model;
 
 import lombok.Data;
 

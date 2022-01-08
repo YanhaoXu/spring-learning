@@ -1,4 +1,4 @@
-package com.github.xuyh.tacocloud.controller;
+package com.github.xuyh.tacocloud.web.controller;
 
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
