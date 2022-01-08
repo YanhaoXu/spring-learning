@@ -11,8 +11,8 @@
     <groupId>com.github.xuyh</groupId>
     <artifactId>taco-cloud-simple</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>taco-cloud</name>
-    <description>taco-cloud</description>
+    <name>taco-cloud-simple</name>
+    <description>taco-cloud-simple</description>
     <properties>
         <java.version>11</java.version>
     </properties>
