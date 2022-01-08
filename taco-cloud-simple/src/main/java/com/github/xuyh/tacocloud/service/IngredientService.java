@@ -1,6 +1,6 @@
 package com.github.xuyh.tacocloud.service;
 
-import com.github.xuyh.tacocloud.repository.IngredientRepository;
+import com.github.xuyh.tacocloud.repository.JdbcIngredientRepository;
 import com.github.xuyh.tacocloud.web.model.Ingredient;
 import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 public class IngredientService {
-  @Autowired private IngredientRepository ingredientRepository;
+  @Autowired private JdbcIngredientRepository ingredientRepository;
 
   public List<Ingredient> getAllIngredients() {
     List<Ingredient> ingredientList = Lists.newArrayList();
