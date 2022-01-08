@@ -22,7 +22,8 @@ public class Order {
 
   @NotBlank(message = "Zip code is required")
   private String zip;
-  //  @CreditCardNumber(message = "Not a valid credit card number")
+
+  // @CreditCardNumber(message = "Not a valid credit card number")
   @NotBlank(message = "Not a valid credit card number")
   private String ccNumber;
 
