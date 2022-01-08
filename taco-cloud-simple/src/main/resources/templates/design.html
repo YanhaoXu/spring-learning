@@ -13,7 +13,7 @@
 <form method="post" th:object="${design}">
 
     <span class="validationError" th:if="${#fields.hasErrors('ingredients')}"
-          th:error="*{ingredients}">Ingredient Error</span>
+          th:errors="*{ingredients}">Ingredient Error</span>
     <div class="grid">
         <div id="wraps" class="ingredient-group">
             <h3>Designate your wrap:</h3>
