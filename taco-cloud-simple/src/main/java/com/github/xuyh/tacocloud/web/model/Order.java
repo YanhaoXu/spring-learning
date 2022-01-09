@@ -6,12 +6,13 @@ import lombok.Data;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import java.util.Date;
 import java.util.List;
 
 @Data
 public class Order {
   private Long id;
-  private Data placedAt;
+  private Date placedAt;
 
   @NotBlank(message = "Name is required")
   private String name;

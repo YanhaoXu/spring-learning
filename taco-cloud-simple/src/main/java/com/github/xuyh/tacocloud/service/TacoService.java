@@ -3,7 +3,9 @@ package com.github.xuyh.tacocloud.service;
 import com.github.xuyh.tacocloud.repository.JdbcTacoRepositoryImpl;
 import com.github.xuyh.tacocloud.web.model.Taco;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class TacoService {
   @Autowired private JdbcTacoRepositoryImpl jdbcTacoRepository;
 

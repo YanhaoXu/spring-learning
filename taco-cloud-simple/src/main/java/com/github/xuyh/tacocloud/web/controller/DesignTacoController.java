@@ -20,20 +20,20 @@ import static java.util.stream.Collectors.toList;
 
 @Slf4j
 @Controller
-@SessionAttributes("order")
 @RequestMapping("/design")
+@SessionAttributes("order")
 public class DesignTacoController {
 
   @Autowired private IngredientService ingredientService;
 
   @Autowired private TacoService tacoService;
 
-  @ModelAttribute
+  @ModelAttribute(name = "taco")
   public Taco taco() {
     return new Taco();
   }
 
-  @ModelAttribute
+  @ModelAttribute(name = "order")
   public Order order() {
     return new Order();
   }
@@ -57,6 +57,7 @@ public class DesignTacoController {
     }
     Taco savedTaco = tacoService.save(design);
     order.addDesign(savedTaco);
+
     log.info("Process design:{}", design);
     return "redirect:/orders/current";
   }
