@@ -18,24 +18,29 @@ public class Order implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
   private Date placedAt;
 
   @NotBlank(message = "Name is required")
+  @Column(name = "deliveryName")
   private String name;
 
   @NotBlank(message = "Street is required")
+  @Column(name = "deliveryStreet")
   private String street;
 
   @NotBlank(message = "City is required")
+  @Column(name = "deliveryCity")
   private String city;
 
   @NotBlank(message = "State is required")
+  @Column(name = "deliveryState")
   private String state;
 
   @NotBlank(message = "Zip code is required")
+  @Column(name = "deliveryZip")
   private String zip;
 
   // @CreditCardNumber(message = "Not a valid credit card number")
@@ -49,6 +54,10 @@ public class Order implements Serializable {
   private String ccCVV;
 
   @ManyToMany(targetEntity = Taco.class)
+  @JoinTable(
+      name = "Taco_Order_Tacos",
+      joinColumns = {@JoinColumn(name = "tacoOrder")},
+      inverseJoinColumns = {@JoinColumn(name = "taco")})
   private List<Taco> tacos = Lists.newArrayList();
 
   public void addDesign(Taco taco) {

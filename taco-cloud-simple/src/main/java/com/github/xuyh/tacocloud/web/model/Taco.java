@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 public class Taco {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
   private Date createdAt;
@@ -22,6 +22,10 @@ public class Taco {
   private String name;
 
   @ManyToMany(targetEntity = Ingredient.class)
+  @JoinTable(
+      name = "Taco_Ingredients",
+      joinColumns = {@JoinColumn(name = "taco")},
+      inverseJoinColumns = {@JoinColumn(name = "ingredient")})
   @Size(min = 1, message = "You must choose at least 1 ingredient")
   private List<Ingredient> ingredients;
 
