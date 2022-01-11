@@ -30,12 +30,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     //        .authorities("ROLE_USER");
 
     // 基于jdbc的用户存储
-    auth.jdbcAuthentication()
-        .dataSource(dataSource)
-        .usersByUsernameQuery("select username, password, enabled from User " + "where username=?")
-        .authoritiesByUsernameQuery(
-            "select username, authority from UserAuthorities " + "where username=?")
-        .passwordEncoder(encoder());
+    //    auth.jdbcAuthentication()
+    //        .dataSource(dataSource)
+    //        .usersByUsernameQuery("select username, password, enabled from User " + "where
+    // username=?")
+    //        .authoritiesByUsernameQuery(
+    //            "select username, authority from UserAuthorities " + "where username=?")
+    //        .passwordEncoder(encoder());
+
+    //
   }
 
   @Bean
