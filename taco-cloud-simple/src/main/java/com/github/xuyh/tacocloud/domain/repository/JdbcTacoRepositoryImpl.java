@@ -1,7 +1,7 @@
-package com.github.xuyh.tacocloud.repository;
+package com.github.xuyh.tacocloud.domain.repository;
 
-import com.github.xuyh.tacocloud.web.model.Ingredient;
-import com.github.xuyh.tacocloud.web.model.Taco;
+import com.github.xuyh.tacocloud.domain.model.Ingredient;
+import com.github.xuyh.tacocloud.domain.model.Taco;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;

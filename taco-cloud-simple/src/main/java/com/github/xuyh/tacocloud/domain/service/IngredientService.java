@@ -1,6 +1,6 @@
-package com.github.xuyh.tacocloud.service;
+package com.github.xuyh.tacocloud.domain.service;
 
-import com.github.xuyh.tacocloud.web.model.Ingredient;
+import com.github.xuyh.tacocloud.domain.model.Ingredient;
 
 import java.util.List;
 

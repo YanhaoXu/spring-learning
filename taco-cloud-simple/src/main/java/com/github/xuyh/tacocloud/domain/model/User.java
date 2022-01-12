@@ -1,4 +1,4 @@
-package com.github.xuyh.tacocloud.web.model;
+package com.github.xuyh.tacocloud.domain.model;
 
 import lombok.AccessLevel;
 import lombok.Data;

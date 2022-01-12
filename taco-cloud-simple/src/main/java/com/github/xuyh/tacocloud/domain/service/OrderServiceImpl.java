@@ -1,7 +1,7 @@
-package com.github.xuyh.tacocloud.service;
+package com.github.xuyh.tacocloud.domain.service;
 
-import com.github.xuyh.tacocloud.repository.JpaOrderRepository;
-import com.github.xuyh.tacocloud.web.model.Order;
+import com.github.xuyh.tacocloud.domain.model.Order;
+import com.github.xuyh.tacocloud.domain.repository.JpaOrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,7 @@
 package com.github.xuyh.tacocloud.web.controller;
 
-import com.github.xuyh.tacocloud.service.OrderService;
-import com.github.xuyh.tacocloud.web.model.Order;
+import com.github.xuyh.tacocloud.domain.model.Order;
+import com.github.xuyh.tacocloud.domain.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

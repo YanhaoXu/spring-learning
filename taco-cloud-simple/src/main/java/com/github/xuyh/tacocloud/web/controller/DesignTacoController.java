@@ -1,11 +1,11 @@
 package com.github.xuyh.tacocloud.web.controller;
 
-import com.github.xuyh.tacocloud.service.IngredientService;
-import com.github.xuyh.tacocloud.service.TacoService;
-import com.github.xuyh.tacocloud.web.model.Ingredient;
-import com.github.xuyh.tacocloud.web.model.Ingredient.Type;
-import com.github.xuyh.tacocloud.web.model.Order;
-import com.github.xuyh.tacocloud.web.model.Taco;
+import com.github.xuyh.tacocloud.domain.model.Ingredient;
+import com.github.xuyh.tacocloud.domain.model.Ingredient.Type;
+import com.github.xuyh.tacocloud.domain.model.Order;
+import com.github.xuyh.tacocloud.domain.model.Taco;
+import com.github.xuyh.tacocloud.domain.service.IngredientService;
+import com.github.xuyh.tacocloud.domain.service.TacoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

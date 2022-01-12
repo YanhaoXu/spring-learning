@@ -1,6 +1,6 @@
-package com.github.xuyh.tacocloud.repository;
+package com.github.xuyh.tacocloud.domain.repository;
 
-import com.github.xuyh.tacocloud.web.model.Ingredient;
+import com.github.xuyh.tacocloud.domain.model.Ingredient;
 
 public interface JdbcIngredientRepository {
   Iterable<Ingredient> findAll();

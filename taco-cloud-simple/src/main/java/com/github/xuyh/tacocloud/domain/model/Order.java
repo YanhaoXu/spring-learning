@@ -1,4 +1,4 @@
-package com.github.xuyh.tacocloud.web.model;
+package com.github.xuyh.tacocloud.domain.model;
 
 import com.google.common.collect.Lists;
 import lombok.Data;

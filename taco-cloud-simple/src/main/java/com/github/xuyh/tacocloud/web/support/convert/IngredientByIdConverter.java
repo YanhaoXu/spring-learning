@@ -1,7 +1,7 @@
 package com.github.xuyh.tacocloud.web.support.convert;
 
-import com.github.xuyh.tacocloud.service.IngredientServiceImpl;
-import com.github.xuyh.tacocloud.web.model.Ingredient;
+import com.github.xuyh.tacocloud.domain.model.Ingredient;
+import com.github.xuyh.tacocloud.domain.service.IngredientServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;

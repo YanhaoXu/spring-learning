@@ -1,6 +1,6 @@
 package com.github.xuyh.tacocloud.web.controller;
 
-import com.github.xuyh.tacocloud.repository.JpaUserRepository;
+import com.github.xuyh.tacocloud.domain.repository.JpaUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;

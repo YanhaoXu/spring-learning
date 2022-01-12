@@ -1,8 +1,8 @@
-package com.github.xuyh.tacocloud.repository;
+package com.github.xuyh.tacocloud.domain.repository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.xuyh.tacocloud.web.model.Order;
-import com.github.xuyh.tacocloud.web.model.Taco;
+import com.github.xuyh.tacocloud.domain.model.Order;
+import com.github.xuyh.tacocloud.domain.model.Taco;
 import com.google.common.collect.Maps;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
