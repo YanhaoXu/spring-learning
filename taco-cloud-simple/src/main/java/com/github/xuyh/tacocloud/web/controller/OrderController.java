@@ -1,9 +1,12 @@
 package com.github.xuyh.tacocloud.web.controller;
 
 import com.github.xuyh.tacocloud.domain.model.Order;
+import com.github.xuyh.tacocloud.domain.model.User;
 import com.github.xuyh.tacocloud.domain.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +24,7 @@ import javax.validation.Valid;
 public class OrderController {
 
   @Autowired private OrderService orderService;
+  @Autowired private UserDetailsService userDetailsService;
 
   @GetMapping("/current")
   public String orderForm() {
@@ -28,10 +32,15 @@ public class OrderController {
   }
 
   @PostMapping
-  public String processOrder(@Valid Order order, Errors errors, SessionStatus sessionStatus) {
+  public String processOrder(
+      @Valid Order order,
+      Errors errors,
+      SessionStatus sessionStatus,
+      @AuthenticationPrincipal User user) {
     if (errors.hasErrors()) {
       return "orderForm";
     }
+    order.setUser(user);
 
     orderService.save(order);
     sessionStatus.setComplete();

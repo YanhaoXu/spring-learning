@@ -8,8 +8,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.crypto.password.StandardPasswordEncoder;
 
 import javax.sql.DataSource;
 
@@ -54,11 +54,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .permitAll()
         .and()
         .formLogin()
-        .loginPage("/login");
+        .loginPage("/login")
+        //        .usernameParameter("username")
+        //        .passwordParameter("password")
+        //        .defaultSuccessUrl("/design", true) // true 强制定向页面
+        .and()
+        .logout()
+        .logoutSuccessUrl("/");
   }
 
   @Bean
   public PasswordEncoder encoder() {
-    return new StandardPasswordEncoder("53cr3t");
+    return new BCryptPasswordEncoder();
   }
 }
