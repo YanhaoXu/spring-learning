@@ -1,9 +1,9 @@
 package com.github.xuyh.tacocloud.web.controller;
 
-import com.github.xuyh.tacocloud.domain.model.Ingredient;
-import com.github.xuyh.tacocloud.domain.model.Ingredient.Type;
-import com.github.xuyh.tacocloud.domain.model.Order;
-import com.github.xuyh.tacocloud.domain.model.Taco;
+import com.github.xuyh.tacocloud.domain.entity.Ingredient;
+import com.github.xuyh.tacocloud.domain.entity.Ingredient.Type;
+import com.github.xuyh.tacocloud.domain.entity.Order;
+import com.github.xuyh.tacocloud.domain.entity.Taco;
 import com.github.xuyh.tacocloud.domain.service.IngredientService;
 import com.github.xuyh.tacocloud.domain.service.TacoService;
 import lombok.extern.slf4j.Slf4j;

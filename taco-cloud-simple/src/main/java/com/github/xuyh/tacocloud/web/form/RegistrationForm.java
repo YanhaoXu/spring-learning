@@ -1,6 +1,6 @@
 package com.github.xuyh.tacocloud.web.form;
 
-import com.github.xuyh.tacocloud.domain.model.User;
+import com.github.xuyh.tacocloud.domain.entity.User;
 import lombok.Data;
 import org.springframework.security.crypto.password.PasswordEncoder;
 

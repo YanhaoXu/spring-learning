@@ -1,6 +1,7 @@
 package com.github.xuyh.tacocloud.web.controller;
 
-import com.github.xuyh.tacocloud.domain.repository.JpaUserRepository;
+import com.github.xuyh.tacocloud.domain.repository.jpa.JpaUserRepository;
+import com.github.xuyh.tacocloud.web.form.RegistrationForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -20,7 +21,8 @@ public class RegistrationController {
   }
 
   @PostMapping
-  public String processRegistration() {
+  public String processRegistration(RegistrationForm form) {
+    userRepo.save(form.toUser(passwordEncoder));
     return "redirect:/login";
   }
 }

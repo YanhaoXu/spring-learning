@@ -43,20 +43,30 @@ create table if not exists Taco_Order_Tacos
     taco      bigint not null
 );
 
-alter table Taco_Order_Tacos
-    add foreign key (tacoOrder) references Taco_Order (id);
-alter table Taco_Order_Tacos
-    add foreign key (taco) references Taco (id);
-
 drop table if exists users;
 drop table if exists authorities;
 drop index if exists ix_auth_username;
 
-create table if not exists users
+-- create table if not exists users
+-- (
+--     username varchar2(50) not null primary key,
+--     password varchar2(50) not null,
+--     enabled  char(1) default '1'
+-- );
+--
+
+create table if not exists user
 (
-    username varchar2(50) not null primary key,
-    password varchar2(50) not null,
-    enabled  char(1) default '1'
+    id          identity,
+    username    varchar2(50) not null unique,
+    password    varchar2(50) not null,
+    fullname    varchar(50),
+    street      varchar(50),
+    city        varchar(50),
+    state       varchar(2),
+    zip         varchar(10),
+    phoneNumber varchar(16),
+    enabled     char(1) default '1'
 );
 
 create table if not exists authorities
@@ -64,7 +74,7 @@ create table if not exists authorities
     username  varchar2(50) not null,
     authority varchar2(50) not null,
     constraint fk_authorities_users
-        foreign key (username) references users (username)
+        foreign key (username) references user (username)
 );
 
 create unique index ix_auth_username

@@ -1,7 +1,7 @@
 package com.github.xuyh.tacocloud.domain.service;
 
-import com.github.xuyh.tacocloud.domain.model.User;
-import com.github.xuyh.tacocloud.domain.repository.JpaUserRepository;
+import com.github.xuyh.tacocloud.domain.entity.User;
+import com.github.xuyh.tacocloud.domain.repository.jpa.JpaUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
