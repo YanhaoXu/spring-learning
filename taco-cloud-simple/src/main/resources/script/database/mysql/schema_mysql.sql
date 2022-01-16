@@ -1,15 +1,24 @@
+drop table if exists Taco_Ingredients;
+drop table if exists Ingredient;
+drop table if exists Taco_Order_Tacos;
+drop table if exists Taco;
+drop table if exists Taco_Order;
+drop table if exists User;
+
 create table if not exists Ingredient
 (
     id   varchar(4)  not null,
     name varchar(25) not null,
-    type varchar(10) not null
+    type varchar(10) not null,
+    primary key (id)
 );
 
 create table if not exists Taco
 (
-    id        identity,
+    id        bigint auto_increment,
     name      varchar(50) not null,
-    createdAt timestamp   not null
+    createdAt timestamp   not null,
+    primary key (id)
 );
 
 create table if not exists Taco_Ingredients
@@ -25,7 +34,7 @@ alter table Taco_Ingredients
 
 create table if not exists Taco_Order
 (
-    id             identity,
+    id             bigint auto_increment,
     deliveryName   varchar(50) not null,
     deliveryStreet varchar(50) not null,
     deliveryCity   varchar(50) not null,
@@ -34,7 +43,8 @@ create table if not exists Taco_Order
     ccNumber       varchar(16) not null,
     ccExpiration   varchar(5)  not null,
     ccCVV          varchar(3)  not null,
-    placedAt       timestamp   not null
+    placedAt       timestamp   not null,
+    primary key (id)
 );
 
 create table if not exists Taco_Order_Tacos
@@ -43,39 +53,17 @@ create table if not exists Taco_Order_Tacos
     taco      bigint not null
 );
 
-drop table if exists users;
-drop table if exists authorities;
-drop index if exists ix_auth_username;
-
--- create table if not exists users
--- (
---     username varchar2(50) not null primary key,
---     password varchar2(50) not null,
---     enabled  char(1) default '1'
--- );
---
-
-create table if not exists user
+create table if not exists User
 (
-    id          identity,
-    username    varchar2(50) not null unique,
-    password    varchar2     not null,
+    id          bigint auto_increment,
+    username    varchar(50)  not null unique,
+    password    varchar(255) not null,
     fullname    varchar(50),
     street      varchar(50),
     city        varchar(50),
     state       varchar(2),
     zip         varchar(10),
     phoneNumber varchar(16),
-    enabled     char(1) default '1'
+    enabled     char(1) default '1',
+    primary key (id)
 );
-
--- create table if not exists authorities
--- (
---     username  varchar2(50) not null,
---     authority varchar2(50) not null,
---     constraint fk_authorities_users
---         foreign key (username) references user (username)
--- );
---
--- create unique index ix_auth_username
---     on authorities (username, authority);
