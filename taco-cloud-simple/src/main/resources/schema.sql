@@ -59,7 +59,7 @@ create table if not exists user
 (
     id          identity,
     username    varchar2(50) not null unique,
-    password    varchar2(50) not null,
+    password    varchar2     not null,
     fullname    varchar(50),
     street      varchar(50),
     city        varchar(50),
@@ -69,13 +69,13 @@ create table if not exists user
     enabled     char(1) default '1'
 );
 
-create table if not exists authorities
-(
-    username  varchar2(50) not null,
-    authority varchar2(50) not null,
-    constraint fk_authorities_users
-        foreign key (username) references user (username)
-);
-
-create unique index ix_auth_username
-    on authorities (username, authority);
+-- create table if not exists authorities
+-- (
+--     username  varchar2(50) not null,
+--     authority varchar2(50) not null,
+--     constraint fk_authorities_users
+--         foreign key (username) references user (username)
+-- );
+--
+-- create unique index ix_auth_username
+--     on authorities (username, authority);

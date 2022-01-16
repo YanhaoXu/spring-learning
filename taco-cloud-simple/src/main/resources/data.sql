@@ -30,8 +30,8 @@ values ('SLSA', 'Salsa', 'SAUCE');
 insert into Ingredient (id, name, type)
 values ('SRCR', 'Sour Cream', 'SAUCE');
 
-insert into user (username, password)
-values ('user', 'ps');
+-- insert into user (username, password)
+-- values ('user', 'ps');
 -- insert into user (username, password)
 -- values ('user2', 'password2');
 
