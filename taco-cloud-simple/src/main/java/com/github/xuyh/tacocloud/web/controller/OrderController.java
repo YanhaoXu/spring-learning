@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -47,5 +48,12 @@ public class OrderController {
 
     log.info("Order submitted: {}", order);
     return "redirect:/";
+  }
+
+  @GetMapping
+  public String ordersForUser(@AuthenticationPrincipal User user, Model model) {
+
+    model.addAttribute("orders", orderService.findByUser(user));
+    return "orderList";
   }
 }
