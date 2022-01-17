@@ -4,8 +4,10 @@ import com.github.xuyh.tacocloud.domain.entity.Ingredient;
 import com.github.xuyh.tacocloud.domain.entity.Ingredient.Type;
 import com.github.xuyh.tacocloud.domain.entity.Order;
 import com.github.xuyh.tacocloud.domain.entity.Taco;
+import com.github.xuyh.tacocloud.domain.entity.User;
 import com.github.xuyh.tacocloud.domain.service.IngredientService;
 import com.github.xuyh.tacocloud.domain.service.TacoService;
+import com.github.xuyh.tacocloud.domain.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,8 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.security.Principal;
+import java.util.Arrays;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
@@ -28,6 +32,8 @@ public class DesignTacoController {
 
   @Autowired private TacoService tacoService;
 
+  @Autowired private UserService userService;
+
   @ModelAttribute(name = "taco")
   public Taco taco() {
     return new Taco();
@@ -39,12 +45,17 @@ public class DesignTacoController {
   }
 
   @GetMapping
-  public String showDesignFrom(Model model) {
+  public String showDesignFrom(Model model, Principal principal) {
     List<Ingredient> ingredients = ingredientService.getAllIngredients();
 
-    for (Type type : Type.values()) {
-      model.addAttribute(type.toString().toLowerCase(), filterByType(ingredients, type));
-    }
+    Arrays.stream(Type.values())
+        .forEach(
+            type ->
+                model.addAttribute(type.toString().toLowerCase(), filterByType(ingredients, type)));
+
+    User user = userService.findByUsername(principal.getName());
+
+    model.addAttribute("user", user);
 
     return "design";
   }

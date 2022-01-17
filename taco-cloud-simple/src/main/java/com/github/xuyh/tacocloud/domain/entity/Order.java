@@ -24,24 +24,19 @@ public class Order implements Serializable {
   private Date placedAt;
 
   @NotBlank(message = "Name is required")
-  @Column(name = "deliveryName")
-  private String name;
+  private String deliveryName;
 
   @NotBlank(message = "Street is required")
-  @Column(name = "deliveryStreet")
-  private String street;
+  private String deliveryStreet;
 
   @NotBlank(message = "City is required")
-  @Column(name = "deliveryCity")
-  private String city;
+  private String deliveryCity;
 
   @NotBlank(message = "State is required")
-  @Column(name = "deliveryState")
-  private String state;
+  private String deliveryState;
 
   @NotBlank(message = "Zip code is required")
-  @Column(name = "deliveryZip")
-  private String zip;
+  private String deliveryZip;
 
   // @CreditCardNumber(message = "Not a valid credit card number")
   @NotBlank(message = "Not a valid credit card number")

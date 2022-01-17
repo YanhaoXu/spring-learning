@@ -10,10 +10,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 
 import javax.validation.Valid;
@@ -26,11 +23,6 @@ public class OrderController {
 
   @Autowired private OrderService orderService;
   @Autowired private UserDetailsService userDetailsService;
-
-  @GetMapping("/current")
-  public String orderForm() {
-    return "orderForm";
-  }
 
   @PostMapping
   public String processOrder(
@@ -48,6 +40,27 @@ public class OrderController {
 
     log.info("Order submitted: {}", order);
     return "redirect:/";
+  }
+
+  @GetMapping("/current")
+  public String orderForm(@AuthenticationPrincipal User user, @ModelAttribute Order order) {
+    if (order.getDeliveryName() == null) {
+      order.setDeliveryName(user.getFullname());
+    }
+    if (order.getDeliveryStreet() == null) {
+      order.setDeliveryStreet(user.getStreet());
+    }
+    if (order.getDeliveryCity() == null) {
+      order.setDeliveryCity(user.getCity());
+    }
+    if (order.getDeliveryState() == null) {
+      order.setDeliveryState(user.getState());
+    }
+    if (order.getDeliveryZip() == null) {
+      order.setDeliveryZip(user.getZip());
+    }
+
+    return "orderForm";
   }
 
   @GetMapping

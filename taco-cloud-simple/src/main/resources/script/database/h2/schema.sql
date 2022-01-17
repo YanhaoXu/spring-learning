@@ -34,7 +34,8 @@ create table if not exists Taco_Order
     ccNumber       varchar(16) not null,
     ccExpiration   varchar(5)  not null,
     ccCVV          varchar(3)  not null,
-    placedAt       timestamp   not null
+    placedAt       timestamp   not null,
+    user           bigint      not null
 );
 
 create table if not exists Taco_Order_Tacos
@@ -67,6 +68,9 @@ create table if not exists User
     phoneNumber varchar(16),
     enabled     char(1) default '1'
 );
+
+alter table Taco_Order
+    add foreign key (user) references User (id);
 
 -- create table if not exists authorities
 -- (
