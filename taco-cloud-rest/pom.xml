@@ -53,6 +53,7 @@
 
     <modules>
         <module>taco-cloud-api</module>
+        <module>taco-cloud-domain</module>
         <module>tacos</module>
     </modules>
 
