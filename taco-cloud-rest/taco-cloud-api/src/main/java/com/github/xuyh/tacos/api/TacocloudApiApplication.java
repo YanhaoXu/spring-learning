@@ -1,4 +1,4 @@
-package com.github.xuyh.tacocloudapi;
+package com.github.xuyh.tacos.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
