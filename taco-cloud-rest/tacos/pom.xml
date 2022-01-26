@@ -6,9 +6,7 @@
         <groupId>com.github.xuyh</groupId>
         <artifactId>taco-cloud-rest-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.github.xuyh</groupId>
     <artifactId>tacos</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>taco-cloud</name>
@@ -17,6 +15,17 @@
         <java.version>11</java.version>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>com.github.xuyh</groupId>
+            <artifactId>taco-cloud-api</artifactId>
+            <version>${tacocloudrest.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.xuyh</groupId>
+            <artifactId>taco-cloud-domain</artifactId>
+            <version>${tacocloudrest.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
