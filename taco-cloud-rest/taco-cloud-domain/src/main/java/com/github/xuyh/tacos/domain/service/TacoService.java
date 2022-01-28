@@ -8,4 +8,6 @@ public interface TacoService {
   Taco save(Taco taco);
 
   List<Taco> findAll();
+
+  List<Taco> recentTacos();
 }
