@@ -9,5 +9,7 @@ public interface TacoService {
 
   List<Taco> findAll();
 
+  Taco findById(Long id);
+
   List<Taco> recentTacos();
 }

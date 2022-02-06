@@ -1,5 +1,6 @@
-package com.github.xuyh.tacos.api;
+package com.github.xuyh.tacos.api.resource;
 
+import com.github.xuyh.tacos.api.controller.IngredientController;
 import com.github.xuyh.tacos.domain.model.Ingredient;
 import org.springframework.hateoas.mvc.ResourceAssemblerSupport;
 

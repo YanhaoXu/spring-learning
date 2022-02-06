@@ -9,6 +9,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TacoServiceImpl implements TacoService {
@@ -18,6 +19,15 @@ public class TacoServiceImpl implements TacoService {
   @Override
   public Taco save(Taco taco) {
     return tacoRepo.save(taco);
+  }
+
+  @Override
+  public Taco findById(Long id) {
+    Optional<Taco> optTaco = tacoRepo.findById(id);
+    if (optTaco.isPresent()) {
+      return optTaco.get();
+    }
+    return null;
   }
 
   @Override

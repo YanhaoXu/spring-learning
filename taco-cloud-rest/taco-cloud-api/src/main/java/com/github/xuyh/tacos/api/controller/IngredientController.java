@@ -1,4 +1,4 @@
-package com.github.xuyh.tacos.api;
+package com.github.xuyh.tacos.api.controller;
 
 import com.github.xuyh.tacos.domain.model.Ingredient;
 import com.github.xuyh.tacos.domain.service.IngredientService;
