@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class ProxyEchoService implements EchoService {
+
   private final EchoService echoService;
 
   public ProxyEchoService(EchoService echoService) {
