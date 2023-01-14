@@ -23,6 +23,10 @@ public class ResponseResult<T> {
     return success(null);
   }
 
+  public static <T> ResponseResult<T> fail(String message) {
+    return fail(null, message);
+  }
+
   public static <T> ResponseResult<T> success(T data) {
     return ResponseResult.<T>builder().data(data).message(ResponseStatus.SUCCESS.getDescription())
         .status(ResponseStatus.SUCCESS.getResponseCode())
