@@ -1,5 +1,6 @@
 package tech.pdai.pdaitechspringboothellodemo.entity;
 
+import java.time.LocalDateTime;
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -11,6 +12,9 @@ import javax.persistence.Table;
 @Table(name = "tb_user")
 public class User {
   @Id
-  private int userId;
+  private Long userId;
   private String userName;
+
+  private LocalDateTime createTime;
+  private LocalDateTime updateTime;
 }
