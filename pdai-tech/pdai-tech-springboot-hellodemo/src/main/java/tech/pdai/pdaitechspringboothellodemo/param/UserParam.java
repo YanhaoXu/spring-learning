@@ -9,6 +9,7 @@ import lombok.Builder;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
+import tech.pdai.pdaitechspringboothellodemo.validation.custom.TelephoneNumber;
 import tech.pdai.pdaitechspringboothellodemo.validation.group.EditValidationGroup;
 
 @Data
@@ -17,7 +18,7 @@ public class UserParam implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
-  @NotEmpty(message = "could not be empty", groups = {EditValidationGroup.class})
+  @NotEmpty(message = "${user.msg.userId.notEmpty}", groups = {EditValidationGroup.class})
   private String userId;
 
   @NotEmpty(message = "could not be empty")
@@ -27,6 +28,9 @@ public class UserParam implements Serializable {
   @NotEmpty(message = "could not be empty")
   @Pattern(regexp = "^(\\d{6})(\\d{4})(\\d{2})(\\d{2})(\\d{3})([0-9]|X)$", message = "invalid ID")
   private String cardNo;
+
+  @TelephoneNumber
+  private String telephone;
 
   @NotEmpty(message = "could not be empty")
   @Length(min = 1, max = 10, message = "nick name should be 1 - 10")
