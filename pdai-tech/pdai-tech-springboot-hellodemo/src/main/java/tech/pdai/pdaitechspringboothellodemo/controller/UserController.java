@@ -1,5 +1,7 @@
 package tech.pdai.pdaitechspringboothellodemo.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import java.time.LocalDateTime;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
@@ -24,6 +26,7 @@ import tech.pdai.pdaitechspringboothellodemo.validation.group.EditValidationGrou
 @RestController
 @RequestMapping("/user")
 @Slf4j
+@Api
 public class UserController {
 
   @Autowired
@@ -78,6 +81,7 @@ public class UserController {
     return ResponseEntity.ok("success");
   }
 
+  @ApiOperation("Query User List")
   @GetMapping("list")
   public ResponseResult<List<User>> list() {
     return ResponseResult.success(userService.list());
