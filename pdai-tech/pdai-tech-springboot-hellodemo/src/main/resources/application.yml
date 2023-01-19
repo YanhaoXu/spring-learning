@@ -29,6 +29,11 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
 
 knife4j:
   enable: true
