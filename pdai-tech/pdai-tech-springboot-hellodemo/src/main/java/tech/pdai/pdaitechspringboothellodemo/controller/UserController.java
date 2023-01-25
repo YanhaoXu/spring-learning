@@ -33,6 +33,7 @@ public class UserController {
   private UserService userService;
 
   @PostMapping("add")
+
   public ResponseResult<User> add(@RequestBody User user) {
 
     if (user.getUserId() == null || !userService.exists(user.getUserId())) {
