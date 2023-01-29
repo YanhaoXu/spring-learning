@@ -19,8 +19,19 @@
 
   <dependencies>
     <dependency>
+      <artifactId>commons</artifactId>
+      <groupId>com.github.xuyh</groupId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <dependency>
+      <artifactId>mybatis-spring-boot-starter</artifactId>
+      <groupId>org.mybatis.spring.boot</groupId>
     </dependency>
   </dependencies>
 
