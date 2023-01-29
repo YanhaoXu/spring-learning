@@ -6,18 +6,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.github.xuyh.entity.User;
-import com.github.xuyh.service.UserService;
+import com.github.xuyh.entity.Book;
+import com.github.xuyh.service.BookService;
 
 @RestController
 @RequestMapping("/")
-public class UserController {
+public class BookController {
 
   @Autowired
-  private UserService userService;
+  private BookService bookService;
 
-  @GetMapping("/user/{uid}")
-  public User findUserById(@PathVariable("uid") int uid) {
-    return userService.getUserById(uid);
+  @GetMapping("/book/{bid}")
+  public Book findBookById(@PathVariable("bid") int bid) {
+    return bookService.getBookById(bid);
   }
+
 }

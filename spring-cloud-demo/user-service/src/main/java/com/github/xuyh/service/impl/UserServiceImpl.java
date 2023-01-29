@@ -10,7 +10,7 @@ import com.github.xuyh.service.UserService;
 @Service
 public class UserServiceImpl implements UserService {
   @Autowired
-  UserMapper userMapper;
+  private UserMapper userMapper;
 
   @Override
   public User getUserById(int uid) {

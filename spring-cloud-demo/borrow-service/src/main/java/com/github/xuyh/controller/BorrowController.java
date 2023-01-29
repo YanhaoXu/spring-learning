@@ -6,18 +6,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.github.xuyh.entity.User;
-import com.github.xuyh.service.UserService;
+import com.github.xuyh.entity.UserBorrowDetail;
+import com.github.xuyh.service.BorrowService;
 
 @RestController
 @RequestMapping("/")
-public class UserController {
+public class BorrowController {
 
   @Autowired
-  private UserService userService;
+  BorrowService borrowService;
 
-  @GetMapping("/user/{uid}")
-  public User findUserById(@PathVariable("uid") int uid) {
-    return userService.getUserById(uid);
+  @GetMapping("/borrow/{uid}")
+  public UserBorrowDetail findUserBorrows(@PathVariable("uid") int uid) {
+    return borrowService.getUserBorrowDetailByUid(uid);
   }
 }
