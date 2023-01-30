@@ -14,7 +14,7 @@ import com.github.xuyh.service.BorrowService;
 public class BorrowController {
 
   @Autowired
-  BorrowService borrowService;
+  private BorrowService borrowService;
 
   @GetMapping("/borrow/{uid}")
   public UserBorrowDetail findUserBorrows(@PathVariable("uid") int uid) {

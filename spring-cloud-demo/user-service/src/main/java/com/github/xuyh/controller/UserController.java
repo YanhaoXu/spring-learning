@@ -9,8 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.xuyh.entity.User;
 import com.github.xuyh.service.UserService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
 @RequestMapping("/")
+@Slf4j
 public class UserController {
 
   @Autowired
@@ -18,6 +21,7 @@ public class UserController {
 
   @GetMapping("/user/{uid}")
   public User findUserById(@PathVariable("uid") int uid) {
+    log.info("我被调用了！");
     return userService.getUserById(uid);
   }
 }

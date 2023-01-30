@@ -17,18 +17,19 @@ import com.github.xuyh.service.BorrowService;
 public class BorrowServiceImpl implements BorrowService {
 
   @Autowired
-  BorrowMapper borrowMapper;
+  private BorrowMapper borrowMapper;
+
+  @Autowired
+  private RestTemplate restTemplate;
 
   @Override
   public UserBorrowDetail getUserBorrowDetailByUid(int uid) {
     List<Borrow> borrowList = borrowMapper.getBorrowsByUid(uid);
 
-    RestTemplate restTemplate = new RestTemplate();
-
-    User user = restTemplate.getForObject("http://localhost:8083/user/" + uid, User.class);
+    User user = restTemplate.getForObject("http://userservice:8101/user/" + uid, User.class);
 
     List<Book> bookList = borrowList.stream().map(
-        it -> restTemplate.getForObject("http://localhost:8081/book/" + it.getBid(), Book.class))
+        it -> restTemplate.getForObject("http://bookservice:8201/book/" + it.getBid(), Book.class))
         .toList();
 
     return new UserBorrowDetail(user, bookList);
