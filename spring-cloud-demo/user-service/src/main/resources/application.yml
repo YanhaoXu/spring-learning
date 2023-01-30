@@ -9,4 +9,5 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8888/eureka
+      # 将两个Eureka的地址都加入，这样就算有一个Eureka挂掉，也能完成注册
+      defaultZone: http://localhost:8801/eureka, http://localhost:8802/eureka
