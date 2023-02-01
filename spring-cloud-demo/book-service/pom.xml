@@ -23,6 +23,17 @@
       <groupId>com.github.xuyh</groupId>
       <version>0.0.1-SNAPSHOT</version>
     </dependency>
+
+    <dependency>
+      <artifactId>spring-cloud-starter-config</artifactId>
+      <groupId>org.springframework.cloud</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>spring-cloud-starter-bootstrap</artifactId>
+      <groupId>org.springframework.cloud</groupId>
+    </dependency>
+
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
