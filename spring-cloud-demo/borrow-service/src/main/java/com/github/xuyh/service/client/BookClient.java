@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.github.xuyh.entity.Book;
 
-@FeignClient("bookservice")
+@FeignClient(value = "bookservice", fallback = BookFallbackClient.class)
 public interface BookClient {
 
   @GetMapping("/book/{bid}")

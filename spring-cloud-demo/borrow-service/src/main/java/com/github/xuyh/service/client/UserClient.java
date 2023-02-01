@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.github.xuyh.entity.User;
 
-@FeignClient("userservice")
+@FeignClient(value = "userservice", fallback = UserFallbackClient.class)
 public interface UserClient {
 
   @GetMapping("/user/{uid}")

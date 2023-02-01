@@ -2,8 +2,21 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <artifactId>eureka-server</artifactId>
+  <artifactId>gateway</artifactId>
+  <dependencies>
+    <dependency>
+      <artifactId>spring-cloud-starter-gateway</artifactId>
+      <groupId>org.springframework.cloud</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+      <groupId>org.springframework.cloud</groupId>
+    </dependency>
+  </dependencies>
+
   <modelVersion>4.0.0</modelVersion>
+
   <parent>
     <artifactId>spring-cloud-demo</artifactId>
     <groupId>com.github.xuyh</groupId>
@@ -16,10 +29,4 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
-  <dependencies>
-    <dependency>
-      <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-      <groupId>org.springframework.cloud</groupId>
-    </dependency>
-  </dependencies>
 </project>

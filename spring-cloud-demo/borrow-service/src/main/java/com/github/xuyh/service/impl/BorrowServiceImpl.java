@@ -2,7 +2,8 @@ package com.github.xuyh.service.impl;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 
 import com.github.xuyh.entity.Book;
@@ -20,16 +21,16 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class BorrowServiceImpl implements BorrowService {
 
-  @Autowired
+  @Resource
   private BorrowMapper borrowMapper;
 
   // @Autowired
   // private RestTemplate restTemplate;
 
-  @Autowired
+  @Resource
   private UserClient userClient;
 
-  @Autowired
+  @Resource
   private BookClient bookClient;
 
   @Override

@@ -1,0 +1,23 @@
+server:
+  port: 8500
+eureka:
+  client:
+    service-url:
+      # 将两个Eureka的地址都加入，这样就算有一个Eureka挂掉，也能完成注册
+      defaultZone: http://localhost:8801/eureka, http://localhost:8802/eureka
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: borrow-service
+          uri: lb://borrowservice
+          predicates:
+            - Path=/borrow/**
+        - id: book-service
+          uri: lb://bookservice
+          predicates:
+            - Path=/book/**
+          filters:
+            - AddRequestHeader=Test, HelloWorld!
