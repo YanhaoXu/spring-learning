@@ -11,29 +11,6 @@
       </plugin>
     </plugins>
   </build>
-  <dependencies>
-    <dependency>
-      <artifactId>spring-boot-starter</artifactId>
-      <groupId>org.springframework.boot</groupId>
-    </dependency>
-
-    <dependency>
-      <artifactId>spring-boot-starter-test</artifactId>
-      <groupId>org.springframework.boot</groupId>
-      <scope>test</scope>
-    </dependency>
-
-
-    <dependency>
-      <artifactId>mysql-connector-java</artifactId>
-      <groupId>mysql</groupId>
-      <version>8.0.29</version>
-    </dependency>
-    <dependency>
-      <artifactId>lombok</artifactId>
-      <groupId>org.projectlombok</groupId>
-    </dependency>
-  </dependencies>
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -41,9 +18,25 @@
         <groupId>org.mybatis.spring.boot</groupId>
         <version>2.2.2</version>
       </dependency>
+
+      <dependency>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <groupId>org.springframework.cloud</groupId>
+        <scope>import</scope>
+        <type>pom</type>
+        <version>2021.0.5</version>
+      </dependency>
+      <dependency>
+        <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+        <groupId>com.alibaba.cloud</groupId>
+        <scope>import</scope>
+        <type>pom</type>
+        <version>2021.0.4.0</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
   <description>spring-cloud-alibaba-demo</description>
+
   <groupId>com.github.xuyh</groupId>
   <modelVersion>4.0.0</modelVersion>
   <modules>
@@ -60,9 +53,32 @@
     <relativePath/>
     <version>2.7.8</version> <!-- lookup parent from repository -->
   </parent>
+
+  <dependencies>
+    <dependency>
+      <artifactId>spring-boot-starter</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <artifactId>mysql-connector-java</artifactId>
+      <groupId>mysql</groupId>
+      <version>8.0.29</version>
+    </dependency>
+    <dependency>
+      <artifactId>lombok</artifactId>
+      <groupId>org.projectlombok</groupId>
+    </dependency>
+  </dependencies>
+
+
   <properties>
     <java.version>17</java.version>
   </properties>
-  <version>0.0.1-SNAPSHOT</version>
 
+  <version>0.0.1-SNAPSHOT</version>
 </project>

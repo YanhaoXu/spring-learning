@@ -1,6 +1,7 @@
 package com.github.xuyh.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 
 import com.github.xuyh.entity.Book;
@@ -9,7 +10,7 @@ import com.github.xuyh.service.BookService;
 
 @Service
 public class BookServiceImpl implements BookService {
-  @Autowired
+  @Resource
   private BookMapper bookMapper;
 
   @Override

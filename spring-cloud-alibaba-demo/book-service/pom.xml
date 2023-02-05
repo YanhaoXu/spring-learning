@@ -2,6 +2,7 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
   <artifactId>book-service</artifactId>
   <dependencies>
 
@@ -19,10 +20,13 @@
       <artifactId>mybatis-spring-boot-starter</artifactId>
       <groupId>org.mybatis.spring.boot</groupId>
     </dependency>
+
+    <dependency>
+      <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+      <groupId>com.alibaba.cloud</groupId>
+    </dependency>
   </dependencies>
-
   <modelVersion>4.0.0</modelVersion>
-
   <parent>
     <artifactId>spring-cloud-alibaba-demo</artifactId>
     <groupId>com.github.xuyh</groupId>

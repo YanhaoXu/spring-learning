@@ -2,9 +2,9 @@ package com.github.xuyh.service.impl;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import com.github.xuyh.entity.Book;
 import com.github.xuyh.entity.Borrow;
@@ -12,24 +12,29 @@ import com.github.xuyh.entity.User;
 import com.github.xuyh.entity.UserBorrowDetail;
 import com.github.xuyh.mapper.BorrowMapper;
 import com.github.xuyh.service.BorrowService;
+import com.github.xuyh.service.client.BookClient;
+import com.github.xuyh.service.client.UserClient;
 
 @Service
 public class BorrowServiceImpl implements BorrowService {
 
-  @Autowired
-  BorrowMapper borrowMapper;
+  @Resource
+  private BorrowMapper borrowMapper;
+
+  @Resource
+  private UserClient userClient;
+
+  @Resource
+  private BookClient bookClient;
 
   @Override
   public UserBorrowDetail getUserBorrowDetailByUid(int uid) {
     List<Borrow> borrowList = borrowMapper.getBorrowsByUid(uid);
 
-    RestTemplate restTemplate = new RestTemplate();
+    User user = userClient.getUserById(uid);
 
-    User user = restTemplate.getForObject("http://localhost:8083/user/" + uid, User.class);
-
-    List<Book> bookList = borrowList.stream().map(
-        it -> restTemplate.getForObject("http://localhost:8081/book/" + it.getBid(), Book.class))
-        .toList();
+    List<Book> bookList =
+        borrowList.stream().map(it -> bookClient.findBookById(it.getBid())).toList();
 
     return new UserBorrowDetail(user, bookList);
   }

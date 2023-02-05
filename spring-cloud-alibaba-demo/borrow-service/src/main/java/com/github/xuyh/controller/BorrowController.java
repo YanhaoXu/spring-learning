@@ -1,6 +1,7 @@
 package com.github.xuyh.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.Resource;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +14,7 @@ import com.github.xuyh.service.BorrowService;
 @RequestMapping("/")
 public class BorrowController {
 
-  @Autowired
+  @Resource
   BorrowService borrowService;
 
   @GetMapping("/borrow/{uid}")

@@ -19,6 +19,12 @@
       <artifactId>mybatis-spring-boot-starter</artifactId>
       <groupId>org.mybatis.spring.boot</groupId>
     </dependency>
+
+    <dependency>
+      <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+      <groupId>com.alibaba.cloud</groupId>
+    </dependency>
+
   </dependencies>
 
   <modelVersion>4.0.0</modelVersion>
