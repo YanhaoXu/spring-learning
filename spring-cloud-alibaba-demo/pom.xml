@@ -44,6 +44,7 @@
     <module>book-service</module>
     <module>borrow-service</module>
     <module>commons</module>
+    <module>rabbitmq-demo</module>
   </modules>
   <name>spring-cloud-demo</name>
   <packaging>pom</packaging>
