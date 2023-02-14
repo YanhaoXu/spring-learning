@@ -40,6 +40,17 @@
       <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
       <groupId>com.alibaba.cloud</groupId>
     </dependency>
+
+    <dependency>
+      <artifactId>spring-boot-starter-security</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>spring-cloud-starter-oauth2</artifactId>
+      <groupId>org.springframework.cloud</groupId>
+      <version>2.2.5.RELEASE</version>
+    </dependency>
   </dependencies>
   <modelVersion>4.0.0</modelVersion>
   <parent>

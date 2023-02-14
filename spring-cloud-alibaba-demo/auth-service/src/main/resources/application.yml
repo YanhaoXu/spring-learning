@@ -1,0 +1,15 @@
+server:
+  port: 8501
+  servlet:
+    context-path: /sso
+spring:
+  application:
+    name: authservice
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:80
+        cluster-name: china
+    loadbalancer:
+      nacos:
+        enabled: true

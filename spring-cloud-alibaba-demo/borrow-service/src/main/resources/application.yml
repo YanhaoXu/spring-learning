@@ -18,6 +18,20 @@ spring:
     loadbalancer:
       nacos:
         enabled: true
+feign:
+  oauth2:
+    #开启Oauth支持，这样就会在请求头中携带Token了
+    enabled: true
+    #同时开启负载均衡支持
+    load-balanced: true
+security:
+  oauth2:
+    client:
+      client-id: web
+      client-secret: 654321
+    resource:
+      #因为资源服务器得验证你的Token是否有访问此资源的权限以及用户信息，所以只需要一个验证地址
+      token-info-uri: http://localhost:8501/sso/oauth/check_token
 
 test:
   txt: abcd
