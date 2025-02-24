@@ -1,0 +1,46 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: "sw-application"
+  main:
+    banner-mode: off
+  profiles:
+    active: dev
+  hikari:
+    # Hikari 数据源的额外配置项
+    maximum-pool-size: 10      # 最大连接池大小
+    minimum-idle: 5            # 最小空闲连接数
+    idle-timeout: 30000        # 连接空闲时间（毫秒）
+    connection-timeout: 60000  # 获取连接的最大等待时间（毫秒）
+  devtools:
+    restart:
+      enabled: true
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 开启打印sql配置 生产环境关闭
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mapper/**/*.xml
+
+logging:
+  level:
+    org.mybatis: INFO
+    org.apache.ibatis: INFO
+    org.springframework.security: DEBUG
+
+# 微服务健康监控
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" #health,info
+      base-path: "/actuator"
+
+# Spring Security
+simple-web:
+  login:
+    jwt:
+      public-Key: "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqE5sXdWHhcQzWeQBnJrN7XrvT8D5lm9u6GkHTvpVil1Jf1rEGA1eMk9bCRdUHAXXKAqlsQBMxLKsPZNy8gwb28iCUDzfkRmTW0fcdN9UvOT0hyG7b1j3vMdPm+lRmRNidwXq2U40FcUN++Z/6gcgvGzDXoGJAzSBNcLClh8NWxM+AKVKPecwF2v03jSzr1EEem5y8h536yWtxRUlPNQwkrXc9Zv/TOztlWwI+SJuuwi4fVdkiR52zQKckB5WL+qAtiP4hJKW0s4dSygVKDsTqggMkKi0FMKvCPB1Ovu7PeFNxH0DYkXCKyPnMonU3BPP8FLoiIrXe8wo/4PVItwJNQIDAQAB"
+      private-key: "MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCoTmxd1YeFxDNZ5AGcms3teu9PwPmWb27oaQdO+lWKXUl/WsQYDV4yT1sJF1QcBdcoCqWxAEzEsqw9k3LyDBvbyIJQPN+RGZNbR9x031S85PSHIbtvWPe8x0+b6VGZE2J3BerZTjQVxQ375n/qByC8bMNegYkDNIE1wsKWHw1bEz4ApUo95zAXa/TeNLOvUQR6bnLyHnfrJa3FFSU81DCStdz1m/9M7O2VbAj5Im67CLh9V2SJHnbNApyQHlYv6oC2I/iEkpbSzh1LKBUoOxOqCAyQqLQUwq8I8HU6+7s94U3EfQNiRcIrI+cyidTcE8/wUuiIitd7zCj/g9Ui3Ak1AgMBAAECggEAKDXQUxzES5Oj9xpvviQIBfBEg4fluWi3FSSen+JUFIIUIK6lQd/TvO5ToBjoOee1TzY3/tFFBgtv9ignoqd88mX1qEja2vZCy+CfzXZb7uM+fphzCPe2/G2b2fKE0a8da7VIthEmhXr2S9P2hImeaxYLGSWWf+MH6bm1tpsFnFfZxxRX7c8fIykaSs71/c+6vnFbr8lxIox6RUqsZybnlxUGC7ZMn3ZAaQcEZ+iwwIneHaz2GaDnTFPq5lYUof9t6iUe/T2AMHJgL/Mcy9RJ9cvO6q3pwM1bOdFWylyOqhD4XmPP25MIDYL3CSpuOZx1heesJprV160OXhpNmYKdIwKBgQDG/w0DawvyLOkAuJlZo4CaLPoNJgjPVu+oT5HiPZQBNfowag6iYpEibUTgdWwQlcv4MGf1XjL7wZ4IGn7dS9UQ88WwRTuEqHuL3E+ZSFEzc8/zjhC/P8e2wCVsTkuMjLn7sxf3YylxZSVD8WXkK/WhDn/PkUkC4We+6Qr/sgn/GwKBgQDYhMsZuD74MfDTkBT/u4YcnvUtHhosIZI65QMuTQOxuqddf0rQISyJOI+1mYvUo2Zqpn/RB3C3ygOQQvRi7GelT/uwh6obBQsh/opzFE5Eqi1T5ytUAHHsfCfRvXSgiww4th4wq+H+NqM9kERIQgGAyA3G1+5IawcpWO6TLV+N7wKBgF3F5Lj+ocN+fFI1qzX9gWWl2jOF/9LM8eSLkoBdajhj2kEkST8mWaQyf6mSS9lI7bRIA0UyHa5bYAALlEruKDpz1W2qQlDSIF4Y9H2UAYfQhGcOREALay5oP3pZLurNifrdO2b9mJLyCeyJfe1W9cnujjYfDZvI4l2pbeBuYp2PAoGAN4yqRuj8TtURQlYe7RWBbOpjYLXuZRAf4jhLPp/HqNuIgPZdjVRVhscaJ69DLsTVS9t3w3szMhQEIgjrhk28sa75lerYe6IpnwkdIDU/d2JpyrLubNjIYbHgzXDb8Sx7cDlZOYd/rab67pqKyjcVB6NL1Y4ktjOvXK5SVzQ25cUCgYAa8QuF1SuN/bs3S0X0VzQxPpMP1QVvwnae0AyRrlwVpVezt1+S3MIlfOVTzAcI+9XwLZm8raX+qeysmt4dRBaZ3i24o54UaQ7lCEyWi297gXbicPfljucUAjxhfjGLorH0S/6uf4q5NyTEsD+VARN2ydxb1P6FwUeKez8tDVaasQ=="

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+  <!--  日志存放路径 -->
+  <property name="log.path" value="logs/"/>
+  <substitutionProperty name="log.pattern"
+                        value="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{20} - [%method,%line] - %msg%n"/>
+
+  <!-- 控制台日志输出 -->
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <charset>UTF-8</charset>
+      <pattern>${log.pattern}</pattern>
+    </encoder>
+  </appender>
+  <!-- 系统日志输出 -->
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${log.path}app.log</file>
+    <!-- 循环政策: 基于大小和时间的滚动策略 -->
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <!-- 日志文件名格式 -->
+      <fileNamePattern>${log.path}app.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+      <!-- 每个文件最大 -->
+      <maxFileSize>5MB</maxFileSize>
+      <!-- 保留最近30天的日志 -->
+      <maxHistory>30</maxHistory>
+      <!-- 总文件大小限制 -->
+      <totalSizeCap>100MB</totalSizeCap>
+    </rollingPolicy>
+    <encoder>
+      <charset>UTF-8</charset>
+      <pattern>${log.pattern}</pattern>
+    </encoder>
+  </appender>
+
+  <logger name="org.mybatis" level="DEBUG">
+    <appender-ref ref="CONSOLE"/>
+  </logger>
+  <logger name="org.apache.ibatis" level="INFO">
+    <appender-ref ref="CONSOLE"/>
+  </logger>
+
+  <root level="INFO">
+    <appender-ref ref="CONSOLE"/>
+    <appender-ref ref="FILE"/>
+  </root>
+</configuration>

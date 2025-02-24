@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.github.xuyh.app.mapper.RoleMapper">
+  <select id="queryUserRolesByUserIds"
+          resultType="com.github.xuyh.app.domain.entity.UserRole">
+    select * from t_user_role
+    where user_id in
+    <foreach item="item" collection="userIds" separator="," open="(" close=")">
+      #{item}
+    </foreach>
+  </select>
+</mapper>

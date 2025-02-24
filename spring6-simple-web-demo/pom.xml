@@ -1,0 +1,165 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.github.xuyh</groupId>
+  <artifactId>spring6-simple-web-demo</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>simple-web-common-parent</module>
+    <module>simple-web-service-parent</module>
+  </modules>
+
+  <properties>
+    <!-- spring-boot 版本 -->
+    <spring-boot.version>3.4.1</spring-boot.version>
+
+    <!-- 下面这5个属性，直接从spring-boot-starter-parent拷贝出来的，如果缺少了，可能会导致maven或idea编译出现奇怪的错误 -->
+    <java.version>21</java.version>
+    <resource.delimiter>@</resource.delimiter>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
+
+    <!-- 数据库-->
+    <mysql-connector.version>8.0.33</mysql-connector.version>
+    <mybatis.version>3.0.4</mybatis.version>
+    <pagehelper.version>2.1.0</pagehelper.version>
+    <hiernate-validator.version>8.0.2.Final</hiernate-validator.version>
+
+    <!-- 三方工具包 -->
+    <guava.version>33.4.0-jre</guava.version>
+    <commons-lang3.version>3.17.0</commons-lang3.version>
+    <commons-collections4.version>4.4</commons-collections4.version>
+    <jjwt.version>0.11.5</jjwt.version>
+
+    <!-- pojo/vo/dto转换时用到的工具类 -->
+    <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <!-- 引入spring-boot-dependencies pom 管理jar包版本管理 -->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring-boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <!-- 项目用到的第三方jar包版本统一管理 -->
+      <!-- 基础工具包 -->
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>${guava.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>${commons-lang3.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-collections4</artifactId>
+        <version>${commons-collections4.version}</version>
+      </dependency>
+
+      <!-- 数据库相关 -->
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysql-connector.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mybatis.spring.boot</groupId>
+        <artifactId>mybatis-spring-boot-starter</artifactId>
+        <version>${mybatis.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.github.pagehelper</groupId>
+        <artifactId>pagehelper-spring-boot-starter</artifactId>
+        <version>${pagehelper.version}</version>
+      </dependency>
+
+      <!-- 校验Web请求参数工具类 -->
+      <dependency>
+        <groupId>org.hibernate.validator</groupId>
+        <artifactId>hibernate-validator</artifactId>
+        <version>${hiernate-validator.version}</version>
+      </dependency>
+
+      <!-- pojo/dto/vo等实体转换工具类 -->
+      <dependency>
+        <groupId>org.mapstruct</groupId>
+        <artifactId>mapstruct</artifactId>
+        <version>${org.mapstruct.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mapstruct</groupId>
+        <artifactId>mapstruct-processor</artifactId>
+        <version>${org.mapstruct.version}</version>
+      </dependency>
+      
+      <!-- jwt -->
+      <dependency>
+        <groupId>io.jsonwebtoken</groupId>
+        <artifactId>jjwt-api</artifactId>
+        <version>${jjwt.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.jsonwebtoken</groupId>
+        <artifactId>jjwt-impl</artifactId>
+        <version>${jjwt.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.jsonwebtoken</groupId>
+        <artifactId>jjwt-jackson</artifactId>
+        <version>${jjwt.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+          <version>${spring-boot.version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+  <!-- 配置Maven的阿里云镜像仓库 -->
+  <!--  <repositories>-->
+  <!--    <repository>-->
+  <!--      <id>public</id>-->
+  <!--      <name>aliyun nexus</name>-->
+  <!--      <url>https://maven.aliyun.com/repository/public</url>-->
+  <!--      <releases>-->
+  <!--        <enabled>true</enabled>-->
+  <!--      </releases>-->
+  <!--    </repository>-->
+  <!--  </repositories>-->
+
+  <!--  <pluginRepositories>-->
+  <!--    <pluginRepository>-->
+  <!--      <id>public</id>-->
+  <!--      <name>aliyun nexus</name>-->
+  <!--      <url>https://maven.aliyun.com/repository/public</url>-->
+  <!--      <releases>-->
+  <!--        <enabled>true</enabled>-->
+  <!--      </releases>-->
+  <!--      <snapshots>-->
+  <!--        <enabled>false</enabled>-->
+  <!--      </snapshots>-->
+  <!--    </pluginRepository>-->
+  <!--  </pluginRepositories>-->
+</project>
